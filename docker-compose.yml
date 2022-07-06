@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  nginx:
+    container_name: elixir-nginx
+    image: nginx:latest
+    ports:
+      - 80:80
+      - 443:443
+    restart: always
+    volumes:
+      - nginx-data:/usr/share/nginx/elixir.rocks:ro
+      - ./default.conf:/etc/nginx/conf.d/default.conf:ro
+
+volumes:
+  nginx-data:
+    external: true
