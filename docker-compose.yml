@@ -7,7 +7,7 @@ services:
     restart: always
     networks:
       - proxy
-    command: tunnel --config /cloudflared/ --no-autoupdate run --token ${{ secrets.CLOUDFLARED_TOKEN }}
+    command: tunnel --config /cloudflared/ --no-autoupdate run --token ${CLOUDFLARED_TOKEN}
     volumes:
       - /opt/cloudflared/:/etc/cloudflared/
   nginx:
