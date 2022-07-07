@@ -22,8 +22,6 @@ services:
     volumes:
       - nginx-data:/usr/share/nginx/elixir.rocks:ro
       - ./default.conf:/etc/nginx/conf.d/default.conf:ro
-    depends-on:
-      - cloudflared
 
 volumes:
   nginx-data:
