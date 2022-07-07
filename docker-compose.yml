@@ -3,13 +3,13 @@ version: '3.3'
 services:
   cloudflared:
     image: cloudflare/cloudflared:latest
-    container-image: elixir-cloudflared
+    container_name: elixir-cloudflared
     restart: always
     networks:
       - proxy
-    command: tunnel --config /cloudflared/ --no-autoupdate run --token ${CLOUDFLARED_TOKEN}
+    command: tunnel --config /etc/cloudflared/config.yml --no-autoupdate run elixir
     volumes:
-      - /opt/cloudflared/:/etc/cloudflared/
+      - ./config.yml:/etc/cloudflared/
   nginx:
     container_name: elixir-nginx
     image: nginx:latest
