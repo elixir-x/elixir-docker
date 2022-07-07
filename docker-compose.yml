@@ -9,7 +9,7 @@ services:
       - proxy
     command: tunnel --config /etc/cloudflared/config.yml --no-autoupdate run elixir
     volumes:
-      - ./config.yml:/etc/cloudflared/
+      - ./config.yml:/etc/cloudflared/config.yml:ro
   nginx:
     container_name: elixir-nginx
     image: nginx:latest
